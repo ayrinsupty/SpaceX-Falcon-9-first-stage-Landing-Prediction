@@ -124,5 +124,10 @@ def update_scatter_chart(selected_site, payload_range):
     return fig
 
 # Run the app
+# if __name__ == '__main__':
+#     app.run()
+
 if __name__ == '__main__':
-    app.run()
+    import os
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host="0.0.0.0", port=port, debug=False)
