@@ -1,1 +1,0 @@
-web: gunicorn spacex-dash-app:server
