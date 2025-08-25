@@ -1,4 +1,5 @@
 # Import required libraries
+import os
 import pandas as pd
 import dash
 from dash import html
@@ -128,7 +129,10 @@ def update_scatter_chart(selected_site, payload_range):
 # if __name__ == '__main__':
 #     app.run()
 
+# Run the app
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get("PORT", 8050))
-    app.run_server(host="0.0.0.0", port=port, debug=False)
+    port = int(os.environ.get("PORT", 8050))  # Use Render's port if available
+    local_url = f"http://127.0.0.1:{port}"
+    print(f"Dash app running locally at {local_url}")
+    app.run(debug=True, host='0.0.0.0', port=port)
+
